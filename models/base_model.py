@@ -69,7 +69,8 @@ class BaseModel:
         if "_sa_instance_state" in new_dict:
             del new_dict["_sa_instance_state"]
         # Delete password except when it's used by FileStorage to save to disk
-        if not to_save and new_dict["__class__"] == "User":
+        if not to_save and new_dict["__class__"] == "User" \
+                and new_dict.get("password"):
             del new_dict["password"]
         return new_dict
 
