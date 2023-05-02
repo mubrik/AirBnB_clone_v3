@@ -2,12 +2,11 @@
 """This file contains functions which can be used in all files within the tests
 package
 """
-from typing import TextIO
 import sys
 from io import StringIO
 
 
-def reset_stream(stream: TextIO):
+def reset_stream(stream):
     """Resets the output stream"""
     if stream.seekable():
         stream.truncate(0)
