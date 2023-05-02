@@ -140,17 +140,19 @@ def search_places():
 
     if state_ids:
         states = [state for state in states if state.id in state_ids]
-        [rv.append(city) for state in states for city in state.cities
-            if city.id not in city_ids]
+        [
+            rv.append(city) for state in states for city in state.cities
+            if city.id not in city_ids
+        ]
 
         city_ids = [city.id for city in rv]
 
     if amenity_ids:
         rv = [
             place for place in places
-            if place.city_id in city_ids
-            and all(storage.get(Amenity, amenity_id) in place.amenities
-                    for amenity_id in amenity_ids)
+            if place.city_id in city_ids and all(storage.get(
+                Amenity, amenity_id) in place.amenities
+                for amenity_id in amenity_ids)
         ]
     else:
         rv = [place for place in places if place.city_id in city_ids]
