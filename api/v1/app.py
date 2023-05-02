@@ -45,4 +45,4 @@ def create_app(config_name):
 if __name__ == "__main__":
     """Start of application"""
     app = create_app(None)
-    app.run(host=HBNB_API_HOST, port=HBNB_API_PORT, threaded=True)
+    app.run(host=HBNB_API_HOST, port=HBNB_API_PORT, threaded=True, debug=True)
